@@ -31,13 +31,13 @@ const router = createBrowserRouter([
 
     {
       path: '/UserDetails/:id',
-      element: <UserDetails />,      
+      element: <UserDetails />,
     },
 
     {
       path: '/UserEdit/:id',
       element: <UserEdit />,
-      loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`)
+      loader: ({ params }) => fetch(`https://skids-health-server-five.vercel.app/users/${params.id}`)
 
     },
     ],

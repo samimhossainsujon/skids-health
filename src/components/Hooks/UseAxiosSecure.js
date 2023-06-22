@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const UseAxiosSecure = () => {
   const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://skids-health-server-five.vercel.app',
   });
 
   useEffect(() => {
@@ -15,13 +15,13 @@ const UseAxiosSecure = () => {
       (response) => response,
       async (error) => {
         if (error.response && (error.response.status === 401 || error.response.status === 403)) {
-        
+
         }
         return Promise.reject(error);
       }
     );
 
-   
+
     return () => {
       axiosSecure.interceptors.request.eject(requestInterceptor);
       axiosSecure.interceptors.response.eject(responseInterceptor);

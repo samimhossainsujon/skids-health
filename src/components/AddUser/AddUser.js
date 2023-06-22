@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import Swal from 'sweetalert2';
 
@@ -14,7 +13,7 @@ const AddUser = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        fetch('http://localhost:5000/newUser', {
+        fetch('https://skids-health-server-five.vercel.app/newUser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -67,11 +66,12 @@ const AddUser = () => {
                     <label className="label">
                         <span className="label-text">Phone Number</span>
                     </label>
-                    <PhoneInput
-                        placeholder="Enter phone number"
-                        {...register('phoneNumber', 
-                        )}                       
-                        onChange={setValue}
+                    <input
+                        type="tel"
+                        placeholder="Enter your phone number"
+                        className="input input-bordered"
+                        {...register('phoneNumber', { required: true })}
+
                     />
                     {errors.phoneNumber && (
                         <span className="text-red-500">Phone number is required</span>
