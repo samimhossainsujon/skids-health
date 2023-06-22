@@ -24,7 +24,7 @@ const UserEdit = () => {
     } = useForm();
 
     const HandelToyDataUpdate = (data) => {
-        fetch(`https://skids-health-server-three.vercel.app/updateUser/${id}`, {
+        fetch(`https://skids-health-server-samimhossainsujon.vercel.app/updateUser/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

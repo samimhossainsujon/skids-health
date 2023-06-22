@@ -13,7 +13,7 @@ const AddUser = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        fetch('https://skids-health-server-three.vercel.app/newUser', {
+        fetch('https://skids-health-server-samimhossainsujon.vercel.app/newUser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
