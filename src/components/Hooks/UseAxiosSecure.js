@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const UseAxiosSecure = () => {
   const axiosSecure = axios.create({
-    baseURL: 'https://skids-health-server-five.vercel.app',
+    baseURL: 'https://skids-health-server-three.vercel.app',
   });
 
   useEffect(() => {
