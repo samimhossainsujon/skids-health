@@ -36,8 +36,7 @@ const router = createBrowserRouter([
 
     {
       path: '/UserEdit/:id',
-      element: <UserEdit />,
-      loader: ({ params }) => fetch(`https://skids-health-server-five.vercel.app/users/${params.id}`)
+      element: <UserEdit />,     
 
     },
     ],
