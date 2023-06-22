@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
-import { QueryClient, QueryClientProvider, useQuery, useMutation, useQueryClient } from 'react-query';
+import { QueryClient, QueryClientProvider,  useMutation, useQueryClient } from 'react-query';
 import { AiFillEdit, AiTwotoneDelete } from 'react-icons/ai';
 import UseAxiosSecure from '../Hooks/UseAxiosSecure';
 import { Link } from 'react-router-dom';
@@ -26,8 +26,8 @@ const Home = () => {
     }, []);
 
 
-    const deleteUserMutation = useMutation(user => {
-        return axiosSecure.delete(`/users/${user._id}`);
+    const deleteUserMutation = useMutation(Users => {
+        return axiosSecure.delete(`/users/${Users._id}`);
     },
 
         {
@@ -83,9 +83,11 @@ const Home = () => {
                                 <th>{user.email}</th>
                                 <th>{user.phoneNumber}</th>
                                 <th>
-                                    <button className="btn btn-outline btn-secondary">
-                                        View Details
-                                    </button>
+                                    <Link to={`/UserDetails/${user._id}`}>
+                                        <button className="btn btn-outline btn-secondary">
+                                            View Details
+                                        </button>
+                                    </Link>
                                 </th>
                                 <th>
                                     <Link to={`/UserEdit/${user._id}`}>

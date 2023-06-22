@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
+import Swal from 'sweetalert2';
 
 const AddUser = () => {
     const [value, setValue] = useState('');
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors }
+    } = useForm();
 
     const onSubmit = (data) => {
         fetch('http://localhost:5000/newUser', {
@@ -17,8 +23,12 @@ const AddUser = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // Handle the response data here
-                console.log(data)
+                Swal.fire(
+                    'User added successfully',
+                    'User Added successfully',
+                    'success'
+                );
+
                 reset();
             })
             .catch(error => console.error(error));
@@ -59,11 +69,13 @@ const AddUser = () => {
                     </label>
                     <PhoneInput
                         placeholder="Enter phone number"
-                        {...register('phoneNumber', { required: true })}
-                        value={value}
+                        {...register('phoneNumber', 
+                        )}                       
                         onChange={setValue}
                     />
-                    {errors.phoneNumber && <span className="text-red-500">Phone number is required</span>}
+                    {errors.phoneNumber && (
+                        <span className="text-red-500">Phone number is required</span>
+                    )}
                 </div>
 
                 <div className="form-control mt-6 mb-5">
