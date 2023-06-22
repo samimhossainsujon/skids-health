@@ -60,6 +60,11 @@ const Home = () => {
             });
     };
 
+    if (users === null) {
+        return <div>Loading...</div>;
+    }
+
+
     return (
         <div>
             <div className="overflow-x-auto">
